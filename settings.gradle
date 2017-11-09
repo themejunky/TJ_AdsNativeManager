@@ -1,0 +1,1 @@
+include ':app', ':module_manager_nativeads'
