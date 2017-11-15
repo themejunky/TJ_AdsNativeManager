@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import themejunky.com.module_manager_nativeads.ads.AdmobNativeAds;
-import themejunky.com.module_manager_nativeads.ads.FacebookNativeAds;
+
 import themejunky.com.module_manager_nativeads.ads.ListenerNativeLoadAds;
 import themejunky.com.module_manager_nativeads.util.ConstantsNativeAds;
 import themejunky.com.module_manager_nativeads.util.ListenerNativeAdsLogs;
@@ -24,7 +24,7 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
     private static Module_ManagerNativeAds mInstance = null;
     private final Context context;
     public AdmobNativeAds admobNativeAds;
-    public FacebookNativeAds facebookNativeAds;
+  //  public FacebookNativeAds facebookNativeAds;
     private String nameLogs;
     private LayoutInflater factory;
     private int next;
@@ -38,7 +38,7 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
         if(isNewInstance){
             if(isFacebook){
                 admobNativeAds = new AdmobNativeAds(context,this,loadListener);
-                facebookNativeAds = new FacebookNativeAds(context,this,loadListener);
+               /* facebookNativeAds = new FacebookNativeAds(context,this,loadListener);*/
             }else {
                 admobNativeAds = new AdmobNativeAds(context,this,loadListener);
             }
@@ -46,7 +46,7 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
         }else {
             if(isFacebook){
                 admobNativeAds = new AdmobNativeAds(context,this,loadListener);
-                facebookNativeAds = new FacebookNativeAds(context,this,loadListener);
+               /* facebookNativeAds = new FacebookNativeAds(context,this,loadListener);*/
             }else {
                 admobNativeAds = new AdmobNativeAds(context,this,loadListener);
             }
@@ -82,12 +82,12 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
     }
 
 
-    public void initFacebookNativeAds(View view, String keynativeFacebook) {
+/*    public void initFacebookNativeAds(View view, String keynativeFacebook) {
         if (!isFacebookInitialized) {
             facebookNativeAds.initFacebookNative(view, keynativeFacebook);
             isFacebookInitialized = true;
         }
-    }
+    }*/
 
     public void initAdmobNativeAds(View view,String idUnitAdmob,int typeAdmobAds ){
         if(!isAdmobInitialized){
@@ -149,7 +149,7 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
                         runAdds_Part2();
                     }
                     break;
-                case ConstantsNativeAds.FACEBOOK:
+             /*   case ConstantsNativeAds.FACEBOOK:
                     Log.d("Testcasda", "FACEBOOK 1");
                     if(facebookNativeAds!=null){
                         Log.d("Testcasda", "FACEBOOK 1.2");
@@ -166,7 +166,7 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
                         runAdds_Part2();
                     }
 
-                    break;
+                    break;*/
                 default:
                     Log.d("Testcasda", "default ");
                     runAdds_Part2();

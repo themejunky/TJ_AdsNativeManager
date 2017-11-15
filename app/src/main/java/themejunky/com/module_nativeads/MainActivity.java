@@ -1,12 +1,9 @@
 package themejunky.com.module_nativeads;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -14,7 +11,6 @@ import java.util.List;
 
 import themejunky.com.module_manager_nativeads.Module_ManagerNativeAds;
 import themejunky.com.module_manager_nativeads.ads.ListenerNativeLoadAds;
-import themejunky.com.module_manager_nativeads.util.ListenerNativeAdsLogs;
 
 public class MainActivity extends AppCompatActivity implements ListenerNativeLoadAds{
     Module_ManagerNativeAds module_managerNativeAds;
