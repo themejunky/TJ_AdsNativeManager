@@ -66,6 +66,7 @@ public class AdmobNativeAds  {
                         public void onContentAdLoaded(NativeContentAd contentAd) {
                             logsListener.logs("Admob: onContentAdLoaded");
                             Log.d("Tesada","onContentAdLoaded");
+                            loadListener.isLoaded("admob");
                             RelativeLayout frameLayout =
                                     view.findViewById(R.id.containerAdmobNativeAds);
                             NativeContentAdView adView = (NativeContentAdView)inflater
@@ -107,6 +108,7 @@ public class AdmobNativeAds  {
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
                         @Override
                         public void onAppInstallAdLoaded(NativeAppInstallAd appInstallAd) {
+                            loadListener.isLoaded("admob");
                             logsListener.logs("Admob: onAppInstallAdLoaded");
                             Log.d(LOG_TAG,"Testcasda onAppInstallAdLoaded ");
                             RelativeLayout frameLayout =view.findViewById(R.id.containerAdmobNativeAds);
@@ -160,7 +162,7 @@ public class AdmobNativeAds  {
                         public void onContentAdLoaded(NativeContentAd contentAd) {
                             logsListener.logs("Admob: onContentAdLoaded");
                             Log.d("Tesada","onContentAdLoaded");
-
+                            loadListener.isLoaded("admob");
                             RelativeLayout frameLayout =
                                     view.findViewById(R.id.containerAdmobNativeAds);
                             NativeContentAdView adView = (NativeContentAdView) inflater
@@ -175,6 +177,7 @@ public class AdmobNativeAds  {
                         @Override
                         public void onAppInstallAdLoaded(NativeAppInstallAd appInstallAd) {
                             logsListener.logs("Admob: onAppInstallAdLoaded");
+                            loadListener.isLoaded("admob");
                             Log.d(LOG_TAG,"Testcasda onAppInstallAdLoaded ");
                             RelativeLayout frameLayout =view.findViewById(R.id.containerAdmobNativeAds);
                             NativeAppInstallAdView adView = (NativeAppInstallAdView) inflater

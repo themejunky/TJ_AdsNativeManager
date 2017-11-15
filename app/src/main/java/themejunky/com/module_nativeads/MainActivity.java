@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements ListenerNativeLoa
     @Override
     public void isLoaded(String type) {
 
+        Log.d("DAsdasd",type);
         //module_managerNativeAds.setFlowAndShowAds(flow,containerFacebook,containerAdmob);
     }
 }
