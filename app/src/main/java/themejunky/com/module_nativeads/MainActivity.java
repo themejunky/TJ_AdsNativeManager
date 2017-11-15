@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ListenerNativeLoa
 
 
 
-        module_managerNativeAds= new Module_ManagerNativeAds(this,true,this);
+        module_managerNativeAds= new Module_ManagerNativeAds(this,true,this,false);
         containerFacebook.removeAllViews();
         containerFacebook.addView(module_managerNativeAds.getAllViewAds("facebook"));
         containerAdmob.removeAllViews();
@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements ListenerNativeLoa
         module_managerNativeAds.setLogs("Testcasda");
 
         module_managerNativeAds.initAdmobNativeAds(containerAdmob,"ca-app-pub-8562466601970101/5081303159",2);
-        module_managerNativeAds.initFacebookNativeAds(containerFacebook,"135358800134225_517137285289706");
+       // module_managerNativeAds.initFacebookNativeAds(containerFacebook,"135358800134225_517137285289706");
         //module_managerNativeAds.admobNativeAds.initAdmobNative(containerAdmob,"ca-app-pub-8562466601970101/6917397533",250);
        // module_managerNativeAds.facebookNativeAds.initFacebookNative(containerFacebook,"83194690296345_932932096864070");
 

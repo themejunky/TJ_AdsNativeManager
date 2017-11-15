@@ -33,14 +33,23 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
     private View facebookView,admobView;
     private boolean isFacebookInitialized=false,isAdmobInitialized=false;
 
-    public Module_ManagerNativeAds(Context context, boolean isNewInstance , ListenerNativeLoadAds loadListener){
+    public Module_ManagerNativeAds(Context context, boolean isNewInstance , ListenerNativeLoadAds loadListener,boolean isFacebook){
         this.context = context;
         if(isNewInstance){
-            admobNativeAds = new AdmobNativeAds(context,this,loadListener);
-            facebookNativeAds = new FacebookNativeAds(context,this,loadListener);
+            if(isFacebook){
+                admobNativeAds = new AdmobNativeAds(context,this,loadListener);
+                facebookNativeAds = new FacebookNativeAds(context,this,loadListener);
+            }else {
+                admobNativeAds = new AdmobNativeAds(context,this,loadListener);
+            }
+
         }else {
-            admobNativeAds = AdmobNativeAds.getInstance(context,this,loadListener);
-            facebookNativeAds = FacebookNativeAds.getmInstance(context,this,loadListener);
+            if(isFacebook){
+                admobNativeAds = new AdmobNativeAds(context,this,loadListener);
+                facebookNativeAds = new FacebookNativeAds(context,this,loadListener);
+            }else {
+                admobNativeAds = new AdmobNativeAds(context,this,loadListener);
+            }
         }
 
 
@@ -101,8 +110,8 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
     }
 
 
-    public synchronized static Module_ManagerNativeAds getmInstance(Activity activity,boolean isNewInstance,ListenerNativeLoadAds loadListener){
-        if(mInstance==null) mInstance= new Module_ManagerNativeAds(activity,isNewInstance,loadListener);
+    public synchronized static Module_ManagerNativeAds getmInstance(Activity activity,boolean isNewInstance,ListenerNativeLoadAds loadListener,boolean isFacebook){
+        if(mInstance==null) mInstance= new Module_ManagerNativeAds(activity,isNewInstance,loadListener,isFacebook);
             return mInstance;
     }
 
@@ -142,14 +151,21 @@ public class Module_ManagerNativeAds implements ListenerNativeAdsLogs {
                     break;
                 case ConstantsNativeAds.FACEBOOK:
                     Log.d("Testcasda", "FACEBOOK 1");
-                    if(facebookNativeAds!=null && facebookNativeAds.nativeAd.isAdLoaded()){
-                        Log.d("Testcasda", "FACEBOOK 2");
-                       facebookView.setVisibility(View.VISIBLE);
-                        Log.d("Testcasda", "FACEBOOK 3");
-                    }else{
-                        Log.d("Testcasda", "FACEBOOK 4");
+                    if(facebookNativeAds!=null){
+                        Log.d("Testcasda", "FACEBOOK 1.2");
+                        if( facebookNativeAds.nativeAd.isAdLoaded()){
+                            Log.d("Testcasda", "FACEBOOK 2");
+                            facebookView.setVisibility(View.VISIBLE);
+                            Log.d("Testcasda", "FACEBOOK 3");
+                        }else{
+                            Log.d("Testcasda", "FACEBOOK 4");
+                            runAdds_Part2();
+                        }
+                        Log.d("Testcasda", "FACEBOOK 5");
+                    }else {
                         runAdds_Part2();
                     }
+
                     break;
                 default:
                     Log.d("Testcasda", "default ");
