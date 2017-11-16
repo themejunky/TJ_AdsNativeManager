@@ -73,7 +73,7 @@ public class AdmobNativeAds  {
                             populateContentAdView(contentAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
-                            isLoaded=true;
+
                         }
                     })
                     .withAdListener(new AdListener() {
@@ -115,7 +115,7 @@ public class AdmobNativeAds  {
                             populateAppInstallAdView(appInstallAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
-                            isLoaded=true;
+
                         }
                     })
                     .withAdListener(new AdListener() {
@@ -167,7 +167,7 @@ public class AdmobNativeAds  {
                             populateContentAdView(contentAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
-                            isLoaded=true;
+
                         }
                     })
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
@@ -181,7 +181,7 @@ public class AdmobNativeAds  {
                             populateAppInstallAdView(appInstallAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
-                            isLoaded=true;
+
                         }
                     })
                     .withAdListener(new AdListener() {
@@ -249,6 +249,7 @@ public class AdmobNativeAds  {
 
 
         if(adView.getHeadlineView()!=null){
+            isLoaded=true;
             loadListener.isLoaded("admob");
         }
 
@@ -313,6 +314,7 @@ public class AdmobNativeAds  {
         ((TextView) adView.getCallToActionView()).setText(nativeContentAd.getCallToAction());
         //((TextView) adView.getAdvertiserView()).setText(nativeContentAd.getAdvertiser());
         if(adView.getHeadlineView()!=null){
+            isLoaded=true;
             loadListener.isLoaded("admob");
         }
 
